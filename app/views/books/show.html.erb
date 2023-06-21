@@ -23,6 +23,14 @@
             <% end %>
         </tr>
       </table>
-    </div>
-  </div>
-</div>
+      <table>
+        <tr>
+      <td><%= render 'book_comments/index', book: @book %><td>
+        </table>
+    <table>
+    <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-100" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</table>
+
