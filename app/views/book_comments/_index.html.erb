@@ -6,7 +6,7 @@
     <td><%= book_comment.comment %></td>
     <td>
        <% if book_comment.user == current_user %>
-      <%= link_to "Destroy", book_book_comment_path(book_comment), method: :delete %>
+      <%= link_to "Destroy", book_book_comment_path(book, book_comment), method: :delete, remote:true, data: {"turbolinks" => false} %>
     <% end %>
     </td>
 
