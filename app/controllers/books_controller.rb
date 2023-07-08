@@ -7,7 +7,7 @@ before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   end
 
   def index
-    @books = Book.all
+    @books = Book.all.order(params[:sort])
     @book = Book.new
 
     if params[:latest]
@@ -52,7 +52,7 @@ before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :star)
+    params.require(:book).permit(:title, :body, :star, :category)
   end
 
   def ensure_correct_user
